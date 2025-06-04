@@ -7,7 +7,7 @@ library(curl)
 ###############################################################################
 # Step 1: Load input data files and reformat
 
-# Targeted analysis
+# Load targeted analysis metabolites
 df1_file <- './docu_data/Targeted/L10FC_sig_fdr_targeted_metabolites.csv'
 df1 <- read_csv(df1_file)
 names(df1)[1] <- "Rank"
@@ -20,6 +20,7 @@ df1 <- df1 %>%
   left_join(name_df, by = c("Metabolite" = "Query")) %>%
   distinct()
 
+# Load genetics data
 df2_file <- "./my_input/genetics_input/annot_15_strains_genetics_data.csv"
 df2 <- read_csv(df2_file)
 selected_df2 <- df2 %>%
@@ -29,7 +30,7 @@ selected_df2 <- df2 %>%
          lineages_with_ref_allele, lineages_with_alt_allele) %>%
   filter(syn_or_non_mutation == "nonsynonymous")
 
-# Untargeted analysis
+# Untargeted analysis (commented out on purpose)
 # df1_file <- './docu_data/Untargeted/L10FC_sig_untargeted_metabolites.csv'
 # df1 <- read_csv(df1_file)
 # names(df1)[1] <- "Rank"
@@ -193,9 +194,7 @@ df_final <- joined_df %>%
 
 ###############################################################################
 # Step 8: Save the path to SNP csv if the dataframe has more than 1 row
-#output_filename <- './docu_data/Targeted/targeted_KEGG_metabolite_matched_lineage_SNPs.csv'
-output_filename <- './docu_data/Untargeted/untargeted_KEGG_metabolite_matched_lineage_SNPs.csv'
-#output_filename <- './docu_data/Untargeted/untargeted_biocyc_metabolite_matched_lineage_SNPs.csv'
+output_filename <- 'targeted_KEGG_metabolite_matched_lineage_SNPs.csv'
 if (nrow(df_final) >= 1) {
   write.csv(df_final, output_filename, row.names = TRUE)
 }
