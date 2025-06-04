@@ -14,8 +14,8 @@ showtext_opts(dpi = 300)
 ##############
 
 # Load df
-pathways_df_filename <- './docu_data/Targeted/targeted_L10FC_sig_fdr_KEGG_metabolite_pathways.csv'
-pathways_df_filename <- './docu_data/Untargeted/untargeted_L10FC_sig_fdr_KEGG_metabolite_pathways.csv'
+pathways_df_filename <- 'targeted_L10FC_sig_fdr_KEGG_metabolite_pathways.csv'
+#pathways_df_filename <- 'untargeted_L10FC_sig_fdr_KEGG_metabolite_pathways.csv'
 pathways_df <- read_csv(pathways_df_filename)
 
 # Make small df, remove overview classes
@@ -138,8 +138,8 @@ showtext_opts(dpi = 300)  # Adjust this value as needed otherwise font will be t
 ##############
 
 # Load df
-pathways_df_filename <- './docu_data/Targeted/targeted_L10FC_sig_fdr_KEGG_metabolite_pathways.csv'
-#pathways_df_filename <- './docu_data/Untargeted/untargeted_L10FC_sig_fdr_KEGG_metabolite_pathways.csv'
+pathways_df_filename <- 'targeted_L10FC_sig_fdr_KEGG_metabolite_pathways.csv'
+#pathways_df_filename <- 'untargeted_L10FC_sig_fdr_KEGG_metabolite_pathways.csv'
 
 pathways_df <- read_csv(pathways_df_filename)
 
@@ -244,8 +244,7 @@ nwidth <- max_char_length * 0.3 + 4.8  # Add padding for labels and margins
 nheight = nrow(h_table)*0.5 + 1.5
 # Create a safe file name
 file_safe_class <- gsub(" ", "_", tolower(selected_kegg_class))
-hmap_plotpath <- paste0("./docu_data/Targeted/color_", file_safe_class, "_fc_heatmap_targeted.png")
-#hmap_plotpath <- "./docu_data/Untargeted/amino_acid_met_lfc_heatmap_untargeted.png"
+hmap_plotpath <- paste0("color_", file_safe_class, "_fc_heatmap_targeted.png")
 ggsave(hmap_plotpath, plot = new_hmap, 
        width = nwidth, height = nheight, dpi = 300)
 
