@@ -1,6 +1,5 @@
-# this script takes the full_genetics_data.csv and assigns strains to SNPs
-# essentially, it collapses the SNP by strain columns 
-# into one column that is a list of strains with the mutant SNP
+# This script takes the genetics data spreadsheet and assigns strains to SNPs
+# essentially, it collapses the SNP by strain columns into one column that is a list of strains with the mutant SNP
 # then it goes through and makes another column that lists the lineages
 # for this, it needs a metadata file with the lineage - strain matches
 
@@ -8,8 +7,8 @@
 library(tidyverse)
 
 # Step 1: Read in the input data file(s) (csv format)
-metadata_file <- "./my_input/genetics_input/strain_lineage.csv"
-genetic_data_file <- "./my_input/genetics_input/15_strains_genetics_data.csv"
+metadata_file <- "strain_lineage_metadata.csv"
+genetic_data_file <- "15_strains_genetics_data.csv"
 metadata <- read_csv(metadata_file)
 gendata <- read_csv(genetic_data_file)
 
@@ -58,4 +57,4 @@ new_annot_gendata <- new_annot_gendata %>%
 print(new_annot_gendata)
 
 # Step 8: Save the new csv
-write.csv(new_annot_gendata, "./my_input/genetics_input/annot_15_strains_genetics_data.csv", row.names = TRUE)
+write.csv(new_annot_gendata, "annot_15_strains_genetics_data.csv", row.names = TRUE)
