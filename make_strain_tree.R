@@ -1,3 +1,4 @@
+# this script uses a distance matrix and ggtree to display the phylogenic tree
 # Step 0: Load libraries
 library(ape)
 library(ggtree)
