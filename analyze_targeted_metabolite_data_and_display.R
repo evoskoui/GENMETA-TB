@@ -1,3 +1,4 @@
+# this is the main analysis script for the workflow, which generates most metabolomics figures
 ################################################################################
 ### Step 0: Import not log2 norm and median intensity normalized data
 ################################################################################
