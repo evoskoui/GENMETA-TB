@@ -1,3 +1,4 @@
+# this script joins the metabolite data to the genetic data using KEGG information
 ###############################################################################
 # Step 0: Load necessary libraries
 library(tidyverse)
