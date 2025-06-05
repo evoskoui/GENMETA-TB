@@ -1,3 +1,4 @@
+# this script compares the SNPs within a csv and counts them by strain
 # Step 1: load library
 library(tidyverse)
 
