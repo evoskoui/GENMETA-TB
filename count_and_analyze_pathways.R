@@ -1,3 +1,4 @@
+# this script analyzes which pathways the metabolites are present within
 ##############################################################################
 # Step 1: Examine the pathways of all metabolites (w/ sig L10FC from ref)
 ##############################################################################
